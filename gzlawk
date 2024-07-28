@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#this script / command locks the system and puts it into hibernate with wallpaper using i3lock
+#this script has been coverted to a alias in the .bashrc and .bashprofile file
+i3lock -i ~/wallp/wall.png

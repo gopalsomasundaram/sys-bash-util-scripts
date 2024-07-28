@@ -1,0 +1,24 @@
+#!/bin/bash
+figlet "GZEPH  UTILS"
+echo -e "1) Get volume\n2) Set Volume percentage\n3) Set Screen Brightness\n4) Set Keyboard Brightness (I/II/III)"
+read -p "(1/2/3/4): " choice
+case $choice in
+	1)
+		wpctl get-volume @DEFAULT_AUDIO_SINK@
+	;;
+	2)
+		read -p "To what percentage?: " vol
+		wpctl set-volume @DEFAULT_AUDIO_SINK@ ${vol}%
+	;;
+	3)
+		read -p "To what percentage?: " brt
+		brightnessctl set ${brt}%
+	;;
+	4)
+		read -p "to level 0, 1, 2 or 3?: " x
+		brightnessctl --device="asus::kbd_backlight" set ${x}
+	;;
+	*)
+		echo "not a valid choice"
+	;;
+esac

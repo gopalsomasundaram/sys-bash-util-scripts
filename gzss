@@ -1,0 +1,5 @@
+#!/bin/bash
+#take screeshit store in ~/sss
+#is in the format of 'MonthDate_Hour:minute:second'
+
+scrot -s ~/sss/%b%d_%H:%M:%S.png
