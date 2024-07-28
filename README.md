@@ -9,6 +9,3 @@ i3lock
 scrot
 brightnessctl
 wireplumber
-```
-sudo pacman -Syu
-```
