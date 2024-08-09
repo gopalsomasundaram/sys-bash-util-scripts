@@ -1,5 +1,4 @@
 #!/bin/bash
-#take screeshit store in ~/sss
-#is in the format of 'MonthDate_Hour:minute:second'
+#using scrot to take screenshots. stored in ~/sss/ dir
 
 scrot -s ~/sss/%b%d_%H:%M:%S.png

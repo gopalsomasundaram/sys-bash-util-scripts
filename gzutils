@@ -1,21 +1,30 @@
 #!/bin/bash
+#for some reason i can't put gzutils in /usr/local/bin/ and get it to work...
 figlet "GZEPH  UTILS"
 echo -e "1) Get volume\n2) Set Volume percentage\n3) Set Screen Brightness\n4) Set Keyboard Brightness (I/II/III)"
-read -p "(1/2/3/4): " choice
+echo -e "(1/2/3/4): "
+read -n 1 choice
+echo -e "\n"
 case $choice in
 	1)
 		wpctl get-volume @DEFAULT_AUDIO_SINK@
 	;;
 	2)
-		read -p "To what percentage?: " vol
+		echo -e "To what percentage?: "
+		read -n 2 vol
+		echo -e "\n"
 		wpctl set-volume @DEFAULT_AUDIO_SINK@ ${vol}%
 	;;
 	3)
-		read -p "To what percentage?: " brt
+		echo -e "To what percentage?: " 
+		read -n 2 brt
+		echo -e "\n"
 		brightnessctl set ${brt}%
 	;;
 	4)
-		read -p "to level 0, 1, 2 or 3?: " x
+		echo -e "to level 0, 1, 2 or 3?: "
+		read -n 1 x
+		echo -e "\n"
 		brightnessctl --device="asus::kbd_backlight" set ${x}
 	;;
 	*)

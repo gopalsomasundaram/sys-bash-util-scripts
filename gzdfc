@@ -1,0 +1,28 @@
+#!/bin/bash
+#input we want to check if directory or not
+infile=${1};
+#file name
+datefilegen=$(date +"%d%h%Y").txt;
+#check if the last char is / if it is not make it
+l=${infile: -1}
+if [ "${l}" == "/" ]; then
+	echo "there"
+else
+	infile=${infile}/
+	echo "not there"
+	echo ${infile}
+fi
+
+if [[ -z ${infile} ]]; then
+	echo "please give directory";
+	exit 1;
+fi
+
+filename=${infile}${datefilegen};
+if [[ -d ${infile} && ! -e ${filename} ]]; then
+	echo "exec checked"
+	touch ${filename}
+	echo "${filename} has been created";
+else
+	echo "${filename} file already exists";
+fi
